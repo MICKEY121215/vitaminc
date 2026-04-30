@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════ */
+/*  GlowVit C — Global Styles & Animations    */
+/* ═══════════════════════════════════════════ */
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #1a1a1a;
+    background-color: #FFFBF5;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(249, 115, 22, 0.2);
+    color: #9a3412;
+  }
+}
+
+@layer components {
+  /* Premium Button Styles */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-3.5 
+           bg-gradient-to-r from-primary-500 to-primary-600 
+           text-white font-semibold rounded-full 
+           shadow-lg shadow-primary-500/25
+           hover:shadow-xl hover:shadow-primary-500/40 
+           hover:from-primary-600 hover:to-primary-700
+           active:scale-[0.98]
+           transition-all duration-300 ease-out
+           text-sm tracking-wide uppercase;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-3.5 
+           bg-white text-primary-600 font-semibold rounded-full 
+           border-2 border-primary-200
+           hover:bg-primary-50 hover:border-primary-400
+           active:scale-[0.98]
+           transition-all duration-300 ease-out
+           text-sm tracking-wide uppercase;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-6 py-2.5 
+           text-primary-600 font-medium rounded-full
+           hover:bg-primary-50
+           active:scale-[0.98]
+           transition-all duration-300 ease-out;
+  }
+
+  /* Glass Card */
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-lg rounded-2xl 
+           border border-white/40 shadow-lg;
+  }
+
+  /* Section styling */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-500 max-w-2xl mx-auto mt-4;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-700;
+  }
+
+  /* Input styles */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 
+           bg-white/80 backdrop-blur-sm
+           focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent
+           placeholder-gray-400 text-gray-800
+           transition-all duration-200;
+  }
+}
+
+@layer utilities {
+  /* Scroll-triggered animation helper */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Decorative glow blob */
+  .glow-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  /* Product card hover */
+  .product-card-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+  .product-card-hover:hover {
+    @apply -translate-y-2 shadow-2xl shadow-primary-200/50;
+  }
+
+  /* Shimmer loading */
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      #f0f0f0 25%,
+      #e0e0e0 50%,
+      #f0f0f0 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s linear infinite;
+  }
+
+  /* Hide scrollbar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fdf6ec;
+}
+::-webkit-scrollbar-thumb {
+  background: #fdba74;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+}
+
+/* Toasts */
+.toast-custom {
+  font-family: 'Inter', sans-serif !important;
+}
